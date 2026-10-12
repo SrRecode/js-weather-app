@@ -1,0 +1,17 @@
+{
+  "name": "js-weather-app",
+  "version": "1.0.0",
+  "description": "A vanilla JavaScript weather app using the OpenWeather API",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test",
+    "start": "npx --yes serve ."
+  },
+  "keywords": [
+    "weather",
+    "openweather",
+    "vanilla-javascript"
+  ],
+  "license": "MIT"
+}

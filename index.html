@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Check the current weather for any city with the OpenWeather API."
+    />
+    <title>Weather</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <h1>Weather</h1>
+        <p>Current conditions for any city, powered by OpenWeather.</p>
+      </header>
+
+      <form class="search" id="search-form" autocomplete="off">
+        <input
+          id="city"
+          class="search__city"
+          type="search"
+          placeholder="City name (e.g. Tokyo)"
+          aria-label="City"
+          required
+        />
+        <select id="units" class="search__units" aria-label="Units">
+          <option value="metric">°C</option>
+          <option value="imperial">°F</option>
+          <option value="standard">K</option>
+        </select>
+        <button class="search__button" type="submit">Search</button>
+      </form>
+
+      <details class="key" id="key-panel">
+        <summary>OpenWeather API key</summary>
+        <div class="key__body">
+          <input
+            id="apikey"
+            class="key__input"
+            type="text"
+            placeholder="Paste your API key"
+            aria-label="OpenWeather API key"
+          />
+          <p class="key__hint">
+            Stored only in your browser. Get a free key at
+            <a href="https://openweathermap.org/api" target="_blank" rel="noopener">openweathermap.org</a>.
+            New keys can take up to a few hours to activate.
+          </p>
+        </div>
+      </details>
+
+      <p class="error" id="error" role="alert" hidden></p>
+
+      <ul class="recents" id="recents" aria-label="Recent cities"></ul>
+
+      <section class="result" id="result" hidden aria-live="polite">
+        <div class="result__top">
+          <div>
+            <h2 class="result__city" id="r-city"></h2>
+            <p class="result__desc" id="r-desc"></p>
+          </div>
+          <img class="result__icon" id="r-icon" alt="" width="96" height="96" />
+        </div>
+
+        <p class="result__temp" id="r-temp"></p>
+        <p class="result__feels" id="r-feels"></p>
+
+        <dl class="stats">
+          <div><dt>Humidity</dt><dd id="r-humidity"></dd></div>
+          <div><dt>Wind</dt><dd id="r-wind"></dd></div>
+          <div><dt>Pressure</dt><dd id="r-pressure"></dd></div>
+          <div><dt>Sunrise</dt><dd id="r-sunrise"></dd></div>
+          <div><dt>Sunset</dt><dd id="r-sunset"></dd></div>
+          <div><dt>Updated</dt><dd id="r-updated"></dd></div>
+        </dl>
+      </section>
+
+      <p class="footnote">Data from the OpenWeather API.</p>
+    </main>
+
+    <script type="module" src="src/ui.js"></script>
+  </body>
+</html>
